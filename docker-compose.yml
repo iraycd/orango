@@ -1,0 +1,29 @@
+version: '3'
+services:
+  orango:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/app
+    environment:
+      ARANGODB_PASSWORD: orango-db
+      ARANGODB_USER: root
+      ARANGODB_URL: http://orango-db:8529
+      ARANGODB_DATABASE: orangodb
+  orango-db:
+    image: arangodb:3.8
+    platform: linux/amd64
+    ports:
+      - "8560:8529"
+    expose:
+      - "8529"
+    volumes:
+      - /var/lib/arangodb3
+      - ./db/database-dump:/docker-entrypoint-initdb.d
+      - ./db/initial-data:/initial-data
+      - ./db/various_dumps:/db-dump
+    environment:
+      ARANGO_ROOT_PASSWORD: orango-db
