@@ -4,8 +4,8 @@ import (
 	"log"
 	"testing"
 
+	"github.com/iraycd/orango"
 	"github.com/stretchr/testify/assert"
-	"orango.jhink.com/orango"
 )
 
 func TestSimple(t *testing.T) {

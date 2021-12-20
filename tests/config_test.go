@@ -1,7 +1,7 @@
 package tests_test
 
 import (
-	"orango.jhink.com/orango"
+	"github.com/iraycd/orango"
 )
 
 // Configure to start testing

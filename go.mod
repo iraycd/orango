@@ -1,4 +1,4 @@
-module orango.jhink.com/orango
+module github.com/iraycd/orango
 
 go 1.17
 
